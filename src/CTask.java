@@ -2,10 +2,7 @@ import java.util.TimerTask;
 
 
 public class CTask extends TimerTask {
-	private CMouse m_Mouse = new CMouse();
-	private CGround m_Ground = new CGround();
-	private CDrone m_Drone = new CDrone();
-	private CDisplay m_Display = new CDisplay();
+
 	
     CTask() {
         
@@ -32,27 +29,30 @@ public class CTask extends TimerTask {
 		// TODO Auto-generated method stub
 		//System.out.println("Task run!");
 	    
-	    m_Display.setGround(m_Ground);
+	    DroneApp.m_Display.setGround(DroneApp.m_Ground);
 	    
-	    m_Mouse.run();
-	    m_Ground.run();
-	    m_Drone.run();
+	    DroneApp.m_Mouse.run();
+	    DroneApp.m_Ground.run();
+	    DroneApp.m_Drone.run();
 	    
-	    m_Display.run();
-	    m_Display.convertGround();
-	    m_Display.convertDrone(m_Drone);
+	    DroneApp.m_Display.run();
+	    DroneApp.m_Display.convertGround();
+	    DroneApp.m_Display.convertDrone(DroneApp.m_Drone);
 	    
-	    
+	    DroneApp.g_Panel.revalidate();
+	    DroneApp.g_FrameMain.repaint();
 	    /*
 	    MouseRun();
 	    GroundRun();
 	    DroneRun();
 	    DisplayRun();
 	    */
+	    
+	    
 	}
 	
 	public CDisplay getCDisplay () {
-	    return this.m_Display;
+	    return DroneApp.m_Display;
 	}
 	
 }
